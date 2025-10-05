@@ -1,0 +1,1 @@
+{"num_labels": 2, "id2label": {"0": "not_harassment", "1": "harassment"}, "label2id": {"not_harassment": 0, "harassment": 1}}

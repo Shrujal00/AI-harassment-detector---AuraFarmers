@@ -1,0 +1,11 @@
+{
+  "vocab_size": 50265,
+  "bos_token": "<s>",
+  "eos_token": "</s>",
+  "pad_token": "<pad>",
+  "unk_token": "<unk>",
+  "mask_token": "<mask>",
+  "special_tokens_map_file": "special_tokens_map.json",
+  "tokenizer_class": "RobertaTokenizer",
+  "model_max_length": 256
+}
