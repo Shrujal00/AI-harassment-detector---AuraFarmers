@@ -305,11 +305,6 @@ The application uses two specialized RoBERTa-based models:
 [MIT License](LICENSE)
 
 ---
-
-## 👨‍💻 Contributors
-
-- Your Name - *Initial work* - [GitHub Profile](https://github.com/yourusername)
-
 ## 🙏 Acknowledgments
 
 - HuggingFace for providing pre-trained models
