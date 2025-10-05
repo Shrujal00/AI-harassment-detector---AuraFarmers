@@ -1,0 +1,78 @@
+/* Bootstrap Overrides & Custom Styles */
+
+/* Add some top padding to accommodate fixed header */
+body {
+  padding-top: 76px; /* Adjust based on your header height */
+}
+
+/* Button styling */
+.btn-primary {
+  background-image: linear-gradient(to right, #4361ee, #7209b7);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-image: linear-gradient(to right, #3a56d4, #6308a1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(66, 99, 235, 0.3);
+}
+
+/* Section spacing */
+section {
+  padding: 5rem 0;
+}
+
+/* Card hover effect */
+.card {
+  transition: all 0.3s ease;
+  background-color: rgba(30, 41, 59, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white !important;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card-subtitle {
+  color: #cbd5e1 !important; /* Ensure card subtitles are visible */
+}
+
+/* Custom text styles */
+.text-gradient {
+  background: linear-gradient(to right, #4361ee, #7209b7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Progress bars */
+.progress {
+  overflow: visible;
+  margin-bottom: 26px;
+  height: 4px;
+}
+
+/* Improve text visibility in dark mode */
+.text-secondary {
+  color: #cbd5e1 !important; /* Lighter gray for better visibility */
+}
+
+.progress-bar {
+  background-color: #4361ee;
+  transition: width 1s ease-in-out;
+}
+
+/* Form elements */
+.form-control:focus {
+  border-color: #4361ee;
+  box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+}
+
+/* Custom background */
+.bg-gradient {
+  background: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+}

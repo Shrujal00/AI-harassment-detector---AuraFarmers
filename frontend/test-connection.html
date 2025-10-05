@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend-Frontend Connection Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .container {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .status {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success { background: #4CAF50; color: white; }
+        .error { background: #f44336; color: white; }
+        .loading { background: #2196F3; color: white; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .result {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 Backend-Frontend Connection Test</h1>
+        
+        <div id="status" class="status loading">Checking backend connection...</div>
+        
+        <div>
+            <h3>📡 API Endpoints Test</h3>
+            <button onclick="testHealth()">Test Health Check</button>
+            <button onclick="testModels()">Test Models Info</button>
+            <button onclick="testAnalyze()">Test Text Analysis</button>
+        </div>
+        
+        <div>
+            <h3>📝 Custom Text Analysis</h3>
+            <textarea id="testText" placeholder="Enter text to analyze for toxicity...">This is a test message.</textarea>
+            <button onclick="analyzeCustomText()">Analyze Text</button>
+        </div>
+        
+        <div id="results"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000';
+        
+        // Test backend connection on page load
+        window.onload = function() {
+            testConnection();
+        };
+        
+        async function testConnection() {
+            try {
+                const response = await fetch(`${API_BASE}/api/health`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    updateStatus('✅ Backend Connected Successfully!', 'success');
+                    addResult('Health Check', data);
+                } else {
+                    updateStatus('❌ Backend Connection Failed', 'error');
+                }
+            } catch (error) {
+                updateStatus(`❌ Connection Error: ${error.message}`, 'error');
+                addResult('Connection Error', error.message);
+            }
+        }
+        
+        async function testHealth() {
+            try {
+                const response = await fetch(`${API_BASE}/api/health`);
+                const data = await response.json();
+                addResult('Health Check', data);
+            } catch (error) {
+                addResult('Health Check Error', error.message);
+            }
+        }
+        
+        async function testModels() {
+            try {
+                const response = await fetch(`${API_BASE}/api/models`);
+                const data = await response.json();
+                addResult('Models Info', data);
+            } catch (error) {
+                addResult('Models Info Error', error.message);
+            }
+        }
+        
+        async function testAnalyze() {
+            try {
+                const response = await fetch(`${API_BASE}/api/analyze`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        text: "This is a test message for analysis."
+                    })
+                });
+                const data = await response.json();
+                addResult('Text Analysis Test', data);
+            } catch (error) {
+                addResult('Text Analysis Error', error.message);
+            }
+        }
+        
+        async function analyzeCustomText() {
+            const text = document.getElementById('testText').value;
+            if (!text.trim()) {
+                alert('Please enter some text to analyze');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/analyze`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: text })
+                });
+                const data = await response.json();
+                addResult('Custom Text Analysis', data);
+            } catch (error) {
+                addResult('Custom Text Analysis Error', error.message);
+            }
+        }
+        
+        function updateStatus(message, type) {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = message;
+            statusEl.className = `status ${type}`;
+        }
+        
+        function addResult(title, data) {
+            const resultsEl = document.getElementById('results');
+            const resultEl = document.createElement('div');
+            resultEl.innerHTML = `
+                <h4>${title}</h4>
+                <div class="result">${JSON.stringify(data, null, 2)}</div>
+            `;
+            resultsEl.appendChild(resultEl);
+        }
+    </script>
+</body>
+</html>

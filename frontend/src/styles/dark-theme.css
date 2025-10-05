@@ -1,0 +1,428 @@
+/* Dark Theme for HumanI - iOS-inspired glossy black theme */
+
+:root {
+  /* iOS 16/17 Dark Mode Colors - Modified for better contrast */
+  --color-primary: #38bdf8;      /* Lighter blue */
+  --color-secondary: #818cf8;    /* Lighter purple */
+  --color-background: #020617;   /* Deep navy background */
+  --color-surface: #1e293b;      /* Slate background */
+  --color-surface-raised: #334155; /* Lighter slate */
+  --color-text-primary: #FFFFFF;  /* White text */
+  --color-text-secondary: #ffffff; /* Pure white for maximum visibility */
+  --color-text-tertiary: #cbd5e1; /* Lighter gray text for better visibility */
+  --color-border: #475569;       /* More visible border */
+  --color-success: #4ade80;      /* Lighter green */
+  --color-danger: #f87171;       /* Lighter red */
+  --color-warning: #fcd34d;      /* Lighter yellow */
+  --color-info: #93c5fd;         /* Lighter blue info */
+  
+  /* UI Constants */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --header-height: 60px;
+}
+
+/* Base styles */
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  padding-top: 76px; /* Space for fixed header */
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Increase element spacing */
+.container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Responsive text sizes */
+h1, .h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h2, .h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h3, .h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  h1, .h1 {
+    font-size: 3.5rem;
+  }
+  
+  h2, .h2 {
+    font-size: 2.5rem;
+  }
+  
+  h3, .h3 {
+    font-size: 2rem;
+  }
+}
+
+/* Glass morphism effect for cards and elevated surfaces */
+.card, .glass-card {
+  background-color: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-bottom: 1.5rem;
+}
+
+.card-header {
+  background-color: var(--color-surface) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  padding: 1.25rem !important;
+}
+
+.card-title {
+  color: var(--color-text-primary) !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.card-subtitle {
+  color: var(--color-text-tertiary) !important;
+  font-size: 0.95rem !important;
+}
+
+.card-body {
+  padding: 1.5rem !important;
+  background-color: var(--color-surface) !important;
+}
+
+/* Header styling */
+.header, .navbar {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Text colors */
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+/* Bootstrap override for better visibility */
+.text-secondary, .text-muted {
+  color: #ffffff !important;
+}
+
+.text-tertiary {
+  color: var(--color-text-tertiary) !important;
+}
+
+/* Button styling */
+.btn {
+  border-radius: 12px !important;
+  padding: 0.6rem 1.25rem !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease-in-out !important;
+  font-size: 1rem !important;
+}
+
+.btn-primary {
+  background-color: var(--color-primary) !important;
+  border: none !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.4) !important;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #0071E3 !important; /* Slightly darker blue on hover */
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(10, 132, 255, 0.5) !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-primary:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 1px 4px rgba(10, 132, 255, 0.4) !important;
+}
+
+.btn-outline-primary {
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--color-primary) !important;
+  color: white !important;
+}
+
+.btn-outline-secondary {
+  color: var(--color-text-secondary) !important;
+  border-color: var(--color-border) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--color-surface-raised) !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* Form controls */
+.form-control, .form-select {
+  background-color: var(--color-surface-raised) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-primary) !important;
+  border-radius: 12px !important;
+  padding: 0.75rem 1rem !important;
+  transition: all 0.2s ease-in-out;
+  font-size: 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: var(--color-surface-raised) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.25) !important;
+}
+
+.form-control::placeholder {
+  color: var(--color-text-tertiary) !important;
+  opacity: 0.7;
+}
+
+/* Progress bars */
+.progress {
+  background-color: var(--color-surface-raised) !important;
+  height: 10px !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+.progress-bar {
+  background-color: var(--color-primary) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 10px rgba(10, 132, 255, 0.6) !important;
+}
+
+/* Alerts */
+.alert {
+  border-radius: 12px !important;
+  padding: 1rem 1.25rem !important;
+  border-width: 1px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.alert-danger {
+  background-color: rgba(255, 69, 58, 0.15) !important;
+  border-color: rgba(255, 69, 58, 0.3) !important;
+  color: #FF453A !important;
+}
+
+.alert-success {
+  background-color: rgba(48, 209, 88, 0.15) !important;
+  border-color: rgba(48, 209, 88, 0.3) !important;
+  color: #30D158 !important;
+}
+
+.alert-warning {
+  background-color: rgba(255, 214, 10, 0.15) !important;
+  border-color: rgba(255, 214, 10, 0.3) !important;
+  color: #FFD60A !important;
+}
+
+.alert-info {
+  background-color: rgba(100, 210, 255, 0.15) !important;
+  border-color: rgba(100, 210, 255, 0.3) !important;
+  color: #64D2FF !important;
+}
+
+/* Background utilities */
+.bg-dark {
+  background-color: var(--color-background) !important;
+}
+
+.bg-light {
+  background-color: var(--color-surface) !important;
+}
+
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+/* Nav links */
+.nav-link {
+  color: var(--color-text-secondary);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+/* Bootstrap dark overrides */
+.bg-white {
+  background-color: var(--color-surface) !important;
+}
+
+/* iOS-style glossy section */
+.ios-section {
+  background-color: rgba(30, 41, 59, 0.9) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5) !important;
+  margin-bottom: 1rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  padding: 1.25rem !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: white !important;
+}
+
+.ios-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* iOS-style divider */
+.ios-divider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 1rem 0;
+}
+
+/* Status indicators */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  position: relative;
+}
+
+.status-dot.success {
+  background-color: var(--color-success);
+  box-shadow: 0 0 10px rgba(48, 209, 88, 0.6);
+}
+
+.status-dot.warning {
+  background-color: var(--color-warning);
+  box-shadow: 0 0 10px rgba(255, 214, 10, 0.6);
+}
+
+.status-dot.danger {
+  background-color: var(--color-danger);
+  box-shadow: 0 0 10px rgba(255, 69, 58, 0.6);
+}
+
+/* Add pulse animation to active status dots */
+.status-dot.pulse {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(48, 209, 88, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(48, 209, 88, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(48, 209, 88, 0);
+  }
+}
+
+/* Badges */
+.badge.bg-success {
+  background-color: var(--color-success) !important;
+}
+
+.badge.bg-danger {
+  background-color: var(--color-danger) !important;
+}
+
+.badge.bg-warning {
+  background-color: var(--color-warning) !important;
+}
+
+/* Input group */
+.input-group-text {
+  background-color: var(--color-surface-raised) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-tertiary) !important;
+  border-radius: 12px !important;
+}
+
+.input-group > .form-control:not(:first-child) {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.input-group > .form-control:not(:last-child) {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Special text area styling */
+textarea.form-control {
+  border: 1px solid var(--color-border) !important;
+  background-color: var(--color-surface-raised) !important;
+  resize: none !important;
+  transition: all 0.3s ease !important;
+  min-height: 120px !important;
+  padding: 1rem !important;
+}
+
+textarea.form-control:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.25) !important;
+}
+
+/* Special input field styling */
+input.form-control {
+  height: calc(2.5rem + 2px) !important;
+}
+
+/* Tables */
+.table {
+  color: var(--color-text-primary);
+}
+
+.table-dark {
+  --bs-table-bg: var(--color-surface);
+  --bs-table-striped-bg: var(--color-surface-raised);
+  --bs-table-border-color: var(--color-border);
+  color: var(--color-text-primary);
+}

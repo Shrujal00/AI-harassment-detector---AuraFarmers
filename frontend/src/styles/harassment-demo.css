@@ -1,0 +1,386 @@
+/* Harassment Detection Demo Styles */
+
+.platform-demo-container {
+  background-color: rgba(25, 30, 50, 0.85); /* Darker, more opaque background */
+  border-radius: 10px;
+  border: 1px solid rgba(62, 152, 199, 0.2); /* Blue-tinted border */
+  padding: 2.5rem; /* More padding */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+  max-width: 800px; /* Control maximum width */
+  margin: 0 auto; /* Center in container */
+}
+
+.platform-demo-container h2 {
+  color: white;
+  font-size: 1.75rem;
+  margin-bottom: 2rem; /* More space below heading */
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for better readability */
+  letter-spacing: 0.5px;
+}
+
+.platform-demo-container label {
+  color: rgba(255, 255, 255, 0.9); /* Brighter label text */
+  font-size: 1rem; /* Slightly larger */
+  margin-bottom: 0.75rem;
+  display: block;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Section for platform selection */
+.platform-selection {
+  margin-bottom: 25px; /* More space below platform selection */
+}
+
+/* Platform buttons wrapper */
+.platform-buttons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* Input container */
+.input-container {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Form labels */
+.form-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.gradient-bg-section {
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(25, 25, 35, 1) 0%, 
+    rgba(45, 50, 80, 0.9) 50%, 
+    rgba(25, 25, 35, 1) 100%
+  );
+  overflow: hidden;
+}
+
+.gradient-bg-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(100, 210, 255, 0.1) 0%, transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(94, 92, 230, 0.1) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+/* Platform button styles */
+.platform-button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-weight: 500;
+  min-width: 95px;
+  text-align: center;
+  background-color: rgba(50, 55, 75, 0.8); /* Darker background for contrast */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7); /* Brighter text for better readability */
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.platform-button:hover {
+  background-color: rgba(60, 65, 85, 0.9);
+  box-shadow: 0 0 15px rgba(62, 152, 199, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.platform-button.active {
+  background-color: rgba(62, 152, 199, 0.9);
+  color: white;
+  border-color: rgba(62, 152, 199, 0.9);
+  box-shadow: 0 0 10px rgba(62, 152, 199, 0.5);
+  font-weight: 600;
+}
+
+.platform-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.platform-button:hover::after {
+  opacity: 1;
+  left: -100%;
+  top: -100%;
+}
+
+/* Analysis card animations */
+.result-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(30, 35, 60, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 1rem;
+}
+
+.result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.result-card h3 {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.flagged-card {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(255, 107, 107, 0.4);
+}
+
+.flagged-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #ff6b6b, #ffa502);
+}
+
+.result-text-sample {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid rgba(62, 152, 199, 0.7);
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0 4px 4px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Input area styles */
+.analysis-textarea {
+  background-color: rgba(30, 35, 60, 0.7); /* Darker for better contrast */
+  border: 1px solid rgba(62, 152, 199, 0.3);
+  border-radius: 6px;
+  color: white;
+  padding: 16px; /* More padding */
+  resize: none;
+  transition: all 0.3s ease;
+  font-size: 14px; /* Explicit font size */
+  line-height: 1.5; /* Better line height */
+  margin-bottom: 15px; /* Space below textarea */
+  height: 120px; /* Fixed height */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
+}
+
+.analysis-textarea:focus {
+  border-color: rgba(62, 152, 199, 0.8);
+  box-shadow: 0 0 0 2px rgba(62, 152, 199, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.analysis-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5); /* Brighter placeholder */
+}
+
+.analyze-button {
+  background-color: rgba(62, 152, 199, 1); /* Fully opaque for better visibility */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px; /* More padding */
+  font-weight: 600; /* Bolder text */
+  transition: all 0.3s ease;
+  font-size: 16px; /* Larger font */
+  letter-spacing: 0.5px; /* Better text spacing */
+  text-transform: uppercase; /* All caps for emphasis */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.analyze-button:hover {
+  background-color: rgba(72, 162, 209, 1); /* Lighter on hover */
+  box-shadow: 0 4px 15px rgba(62, 152, 199, 0.5);
+  transform: translateY(-1px); /* Subtle lift effect */
+}
+
+.analyze-button:disabled {
+  background-color: rgba(62, 152, 199, 0.5);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Score grid layout */
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.score-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.score-value {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 6px;
+  text-align: right;
+}
+
+/* Score bar styling */
+.score-bar-bg {
+  height: 8px;
+  background-color: rgba(30, 35, 60, 0.6);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.score-bar-fill {
+  height: 100%;
+  position: relative;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.score-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  animation: barGlint 2s infinite linear;
+}
+
+.harassment-bar {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.misogyny-bar {
+  background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+}
+
+.toxicity-bar {
+  background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+@keyframes barGlint {
+  0% {
+    left: -30%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+/* Result header styling */
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.platform-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-green {
+  background-color: #4ade80;
+  box-shadow: 0 0 5px rgba(74, 222, 128, 0.5);
+}
+
+.status-red {
+  background-color: #ef4444;
+  box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+}
+
+.platform-name {
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.flag-indicator {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Pulse notification for flagged content */
+.flag-pulse {
+  position: relative;
+}
+
+.flag-pulse::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 0 rgba(239, 68, 68, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}

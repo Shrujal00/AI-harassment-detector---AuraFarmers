@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' http://localhost:5000 ws://localhost:*; frame-ancestors 'none'; base-uri 'none'; form-action 'self';">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <title>Harassment Detector</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- Runtime Configuration Injection Point -->
+    <script>
+      // In production, this script tag will be replaced with actual config
+      // Example: window.__ENV__ = { API_BASE_URL: "https://api.example.com", ... };
+      if (!window.__ENV__) {
+        console.log('Running in development mode - using .env variables');
+      }
+    </script>
+    
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
